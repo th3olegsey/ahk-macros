@@ -1,7 +1,7 @@
 ﻿;data := FileRead('1.txt', 'UTF-8')
 ;A_Clipboard := data
 ui := Gui('AlwaysOnTop')
-worldfarmtext := ui.AddText('h20 w150', 'World farming')
+worldfarmtext := ui.AddText('h20 w200', 'World farming')
 worldfarmtext.SetFont('s12')
 
 wf_1of4 := ui.AddButton('','1/4')
