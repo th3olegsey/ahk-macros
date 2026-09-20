@@ -1,0 +1,8 @@
+```ansi
+[1;34mHosting [31mvolcano [35mnightmare [0;1;34mwith following modifiers ([4mx1.55[0;1;34m):
+[32m• Double trouble
+• First person
+• Inverted controls[0m
+[1;33;40m[[32m@@@[31m@[0;1;33;40m]
+```
+https://www.roblox.com/share?code=27fbf668863ee843b58622e5d8741ee0&type=Server
