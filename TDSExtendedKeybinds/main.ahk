@@ -27,10 +27,14 @@ saveHotkey(GuiCtrlObj, Info){
         Hotkey('~' currentHotkey, toggleAutoSkip, 'on')
     }
 }
+exitOnClose(*){
+    ExitApp()
+}
 
 mygui := Gui('AlwaysOnTop', 'TDSEK')
 mygui.tabs := mygui.AddTab3(,['Toggle', 'Edit keys'])
 toggleAutoSkipCheckbox := mygui.AddCheckbox('','[VIP] Toggle Auto skip')
+mygui.OnEvent('Close', exitOnClose)
 
 mygui.tabs.UseTab(2)
 hotkeyInput := mygui.AddHotkey(, currentHotkey)
@@ -59,12 +63,12 @@ toggleAutoSkip(*){
     }
 }
 ~g::{
-    if false{
+    if false{ ;disabled by default. Change false to true to enable it. Note: ~ is strictly required
         MouseGetPos(&OutputX, &OutputY)
         A_Clipboard := 1/(A_ScreenWidth/OutputX) ', ' 1/(A_ScreenHeight/OutputY)
     }
 }
-~r::{
+~r::{ ;disabled by default.
     if false{
         Reload()
     }
