@@ -1,4 +1,5 @@
 #Requires AutoHotkey v2.0
+#Include stratGui.ahk
 
 currentToggleAutoSkipHotkey := IniRead('ini.ini','keys', 'toggle_autoskip_hotkey', 'f1')
 currentSkipHotkey := IniRead('ini.ini','keys', 'skip_hotkey', 'f2')
@@ -65,39 +66,55 @@ mygui.Show()
 Hotkey('~' currentToggleAutoSkipHotkey, toggleAutoSkip)
 toggleAutoSkip(*){
     if WinActive('Roblox') AND toggleAutoSkipCheckbox.Value{
+        SetTimer(followCursor, 0)
+        SendMode('Input')
+        stratGui.Hide()
+
         MouseGetPos(&OutputX, &OutputY)
-        
+
         MouseMove(A_ScreenWidth*0.98, A_ScreenHeight*0.03) ;settings
         rbxDetectMouse()
         Click()
-        
+
         MouseMove(A_ScreenWidth*0.33, A_ScreenHeight*0.32) ;gameplay tab
         rbxDetectMouse()
         Click()
-        
+
         MouseMove(A_ScreenWidth*0.695, A_ScreenHeight*0.39) ;toggle
         rbxDetectMouse()
         Click()
-        
+
         MouseMove(A_ScreenWidth*0.71, A_ScreenHeight*0.32) ;exit
         rbxDetectMouse()
         Click()
-        
+
         MouseMove(OutputX, OutputY)
         rbxDetectMouse()
+
+        stratGui.Show('NoActivate')
+        SetTimer(followCursor, 10)
+        CoordMode('Mouse', 'Screen')
     }
 }
 Hotkey('~' currentSkipHotkey, skipWave)
 skipWave(*){
     if WinActive('Roblox') AND skipCheckbox.Value{
+        SetTimer(followCursor, 0)
+        SendMode('Input')
+        stratGui.Hide()
+
         MouseGetPos(&OutputX, &OutputY)
 
         MouseMove(A_ScreenWidth*0.53, A_ScreenHeight*0.17)
         rbxDetectMouse()
         Click()
-        
+
         MouseMove(OutputX, OutputY)
         rbxDetectMouse()
+
+        stratGui.Show('NoActivate')
+        SetTimer(followCursor, 10)
+        CoordMode('Mouse', 'Screen')
     }
 }
 ;dev tools
